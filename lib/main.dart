@@ -159,6 +159,7 @@ class NearDoctorWidget extends StatelessWidget {
                 "Near Doctor",
                 style: TextStyle(color: Colors.black),
               ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
