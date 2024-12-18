@@ -50,13 +50,21 @@ class CardDoctorWidget extends StatelessWidget {
             ],
           ),
         ),
-        const Divider(),
+        Container(
+            width: 287,
+            child: const Divider(
+              thickness: 1,
+            )),
         const Padding(
           padding: EdgeInsets.only(top: 16.0, left: 20, right: 20, bottom: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Icon(Icons.calendar_month, color: Colors.white,size: 16,),
+              Icon(
+                Icons.calendar_month,
+                color: Colors.white,
+                size: 16,
+              ),
               Text("Sunday, 12 June",
                   style: TextStyle(color: Colors.white, fontSize: 12)),
               Icon(

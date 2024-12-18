@@ -8,6 +8,7 @@ class NearDoctorWidget extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         children: [
           Card(
+              color: Colors.white,
               margin: const EdgeInsets.only(top: 16.0, bottom: 10.0),
               child: Column(children: [
                 Padding(
@@ -60,7 +61,11 @@ class NearDoctorWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Divider(),
+                Container(
+                    width: 287,
+                    child: const Divider(
+                      thickness: 1,
+                    )),
                 const Padding(
                   padding: EdgeInsets.only(
                       top: 16.0, left: 20, right: 20, bottom: 20),
@@ -88,6 +93,7 @@ class NearDoctorWidget extends StatelessWidget {
                 )
               ])),
           Card(
+              color: Colors.white,
               margin: const EdgeInsets.only(top: 16.0, bottom: 10.0),
               child: Column(children: [
                 Padding(
@@ -140,7 +146,11 @@ class NearDoctorWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Divider(),
+                Container(
+                    width: 287,
+                    child: const Divider(
+                      thickness: 1,
+                    )),
                 const Padding(
                   padding: EdgeInsets.only(
                       top: 16.0, left: 20, right: 20, bottom: 20),
