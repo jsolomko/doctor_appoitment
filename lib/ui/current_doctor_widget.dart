@@ -6,7 +6,7 @@ class CardDoctorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Card(
-      margin: const EdgeInsets.only(top: 16.0, bottom: 10.0),
+      margin: const EdgeInsets.only(top: 16.0, bottom: 12.0),
       color: Colors.blue,
       child: Column(children: [
         Padding(

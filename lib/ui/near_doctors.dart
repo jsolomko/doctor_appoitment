@@ -48,7 +48,7 @@ class NearDoctorWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Icon(Icons.not_listed_location,
-                                  color: Colors.white),
+                                  color: Colors.grey),
                               Text(
                                 "1.2 KM",
                                 style:
@@ -133,7 +133,7 @@ class NearDoctorWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Icon(Icons.not_listed_location,
-                                  color: Colors.white),
+                                  color: Colors.grey),
                               Text(
                                 "1.2 KM",
                                 style:

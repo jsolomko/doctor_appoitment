@@ -6,7 +6,7 @@ class ThemesIconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-    margin: EdgeInsets.only(top: 10.0, bottom: 12.0),
+    margin: EdgeInsets.only(top: 12.0, bottom: 32.0),
     child: const Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
