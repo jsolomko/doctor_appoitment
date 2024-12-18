@@ -1,3 +1,7 @@
+import 'package:doctor_appoitment/ui/current_doctor_widget.dart';
+import 'package:doctor_appoitment/ui/near_doctors.dart';
+import 'package:doctor_appoitment/ui/search_doctor_widget.dart';
+import 'package:doctor_appoitment/ui/themes_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,8 +27,8 @@ class MyApp extends StatelessWidget {
           ),*/
           body: const TabBarView(
             children: [
-              MyHomePage(title: 'Hello,\nHi James'),
-              MyHomePage(title: 'Hello,\nHi James'),
+              MyHomePage(title: 'Hi James'),
+              MyHomePage(title: 'Hi James'),
             ],
           ),
           bottomNavigationBar: Container(
@@ -78,7 +82,25 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         iconTheme: IconThemeData(),
         backgroundColor: Colors.white,
-        title: Text(widget.title),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Hello,", style: TextStyle(fontSize: 16, color: Colors.grey)),
+            Text(
+              widget.title,
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+            )
+          ],
+        ),
+        actions: [
+          Container(
+            padding: EdgeInsets.only(right: 20),
+            child: Image(image: AssetImage("assets/images/Frame.png")),
+          )
+        ],
       ),
       body: Container(
         padding: const EdgeInsets.all(20),
@@ -88,257 +110,22 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CardDoctorWidget(),
+              CardDoctorWidget(),
               SearchDoctorWidget(),
               ThemesIconWidget(),
-              const Text(
-
+              Text(
                 textAlign: TextAlign.left,
                 "Near Doctor",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
               ),
-              const NearDoctorWidget(),
+              NearDoctorWidget(),
             ],
           ),
         ),
       ),
     );
   }
-}
-
-class ThemesIconWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => Container(
-        margin: EdgeInsets.only(top: 10.0, bottom: 12.0),
-        child: const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Column(
-              children: [
-                Icon(
-                  Icons.cloudy_snowing,
-                  size: 72,
-                ),
-                Text("Covid 19")
-              ],
-            ),
-            Column(
-              children: [Icon(Icons.person, size: 72), Text("Doctor")],
-            ),
-            Column(
-              children: [
-                Icon(Icons.medical_information, size: 72),
-                Text("Medicine")
-              ],
-            ),
-            Column(
-              children: [
-                Icon(Icons.local_hospital, size: 72),
-                Text("Hospital")
-              ],
-            )
-          ],
-        ),
-      );
-}
-
-class SearchDoctorWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => const Card(
-      margin: EdgeInsets.only(top: 10.0, bottom: 12.0),
-      color: Colors.white,
-      child: TextField(
-          decoration: InputDecoration(
-        prefix: Icon(Icons.search),
-        hintText: 'Search doctor or health issue',
-      )));
-}
-
-class NearDoctorWidget extends StatelessWidget {
-  const NearDoctorWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) => const Column(
-        children: [
-          Card(
-              margin: EdgeInsets.only(top: 16.0, bottom: 10.0),
-              child: Column(children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: 20.0, left: 20, right: 20, bottom: 16),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(Icons.person),
-                              Column(
-                                children: [
-                                  Text(
-                                    "Dr. Joseph Brostito",
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 18),
-                                  ),
-                                  Text("Dental Specialist",
-                                      style: TextStyle(color: Colors.black))
-                                ],
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Icon(Icons.not_listed_location,
-                                  color: Colors.white),
-                              Text("1.2 KM")
-                            ],
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                Divider(),
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: 16.0, left: 20, right: 20, bottom: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(Icons.watch_later_outlined, color: Colors.yellow),
-                      Text("4.8 (120 Reviews)",
-                          style: TextStyle(color: Colors.yellow)),
-                      Icon(
-                        Icons.watch_later_outlined,
-                        color: Colors.blue,
-                      ),
-                      Text("Open at 17.00",
-                          style: TextStyle(color: Colors.blue))
-                    ],
-                  ),
-                )
-              ])),
-          Card(
-              margin: EdgeInsets.only(top: 16.0, bottom: 10.0),
-              child: Column(children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: 20.0, left: 20, right: 20, bottom: 16),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(Icons.person),
-                              Column(
-                                children: [
-                                  Text(
-                                    "Dr. Imran Syahir",
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 18),
-                                  ),
-                                  Text("General Doctor",
-                                      style: TextStyle(color: Colors.black))
-                                ],
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Icon(Icons.not_listed_location,
-                                  color: Colors.white),
-                              Text("1.2 KM")
-                            ],
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                Divider(),
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: 16.0, left: 20, right: 20, bottom: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(Icons.watch_later_outlined, color: Colors.yellow),
-                      Text("4.8 (120 Reviews)",
-                          style: TextStyle(color: Colors.yellow)),
-                      Icon(
-                        Icons.watch_later_outlined,
-                        color: Colors.blue,
-                      ),
-                      Text("Open at 17.00",
-                          style: TextStyle(color: Colors.blue))
-                    ],
-                  ),
-                )
-              ]))
-        ],
-      );
-}
-
-class CardDoctorWidget extends StatelessWidget {
-  const CardDoctorWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) => const Card(
-      margin: EdgeInsets.only(top: 16.0, bottom: 10.0),
-      color: Colors.blue,
-      child: Column(children: [
-        Padding(
-          padding: EdgeInsets.only(top: 20.0, left: 20, right: 20, bottom: 16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Icon(Icons.person),
-                  Column(
-                    children: [
-                      Text(
-                        "Dr. Imran Syahir",
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                      ),
-                      Text("General Doctor",
-                          style: TextStyle(color: Colors.white))
-                    ],
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(Icons.keyboard_arrow_right_rounded, color: Colors.white),
-                ],
-              )
-            ],
-          ),
-        ),
-        Divider(),
-        Padding(
-          padding: EdgeInsets.only(top: 16.0, left: 20, right: 20, bottom: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Icon(Icons.calendar_month, color: Colors.white),
-              Text("Sunday, 12 June", style: TextStyle(color: Colors.white)),
-              Icon(
-                Icons.watch_later_outlined,
-                color: Colors.white,
-              ),
-              Text("11:00 - 12:00 AM", style: TextStyle(color: Colors.white))
-            ],
-          ),
-        )
-      ]));
 }
