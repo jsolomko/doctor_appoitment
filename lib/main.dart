@@ -83,13 +83,23 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            const CardDoctorWidget(),
-            SearchDoctorWidget(),
-            ThemesIconWidget(),
-            const NearDoctorWidget()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CardDoctorWidget(),
+              SearchDoctorWidget(),
+              ThemesIconWidget(),
+              const Text(
+
+                textAlign: TextAlign.left,
+                "Near Doctor",
+                style: TextStyle(color: Colors.black),
+              ),
+              const NearDoctorWidget(),
+            ],
+          ),
         ),
       ),
     );
@@ -148,66 +158,132 @@ class NearDoctorWidget extends StatelessWidget {
   const NearDoctorWidget({super.key});
 
   @override
-  Widget build(BuildContext context) => const Card(
-      margin: EdgeInsets.only(top: 16.0, bottom: 10.0),
-      child: Column(children: [
-        Padding(
-          padding: EdgeInsets.only(top: 20.0, left: 20, right: 20, bottom: 16),
-          child: Column(
-            children: [
-              Text(
-                "Near Doctor",
-                style: TextStyle(color: Colors.black),
-              ),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+  Widget build(BuildContext context) => const Column(
+        children: [
+          Card(
+              margin: EdgeInsets.only(top: 16.0, bottom: 10.0),
+              child: Column(children: [
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 20.0, left: 20, right: 20, bottom: 16),
+                  child: Column(
                     children: [
-                      Icon(Icons.person),
-                      Column(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            "Dr. Joseph Brostito",
-                            style: TextStyle(color: Colors.black, fontSize: 18),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(Icons.person),
+                              Column(
+                                children: [
+                                  Text(
+                                    "Dr. Joseph Brostito",
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 18),
+                                  ),
+                                  Text("Dental Specialist",
+                                      style: TextStyle(color: Colors.black))
+                                ],
+                              ),
+                            ],
                           ),
-                          Text("Dental Specialist",
-                              style: TextStyle(color: Colors.black))
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Icon(Icons.not_listed_location,
+                                  color: Colors.white),
+                              Text("1.2 KM")
+                            ],
+                          )
                         ],
-                      ),
+                      )
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                ),
+                Divider(),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 16.0, left: 20, right: 20, bottom: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Icon(Icons.not_listed_location, color: Colors.white),
-                      Text("1.2 KM")
+                      Icon(Icons.watch_later_outlined, color: Colors.yellow),
+                      Text("4.8 (120 Reviews)",
+                          style: TextStyle(color: Colors.yellow)),
+                      Icon(
+                        Icons.watch_later_outlined,
+                        color: Colors.blue,
+                      ),
+                      Text("Open at 17.00",
+                          style: TextStyle(color: Colors.blue))
                     ],
-                  )
-                ],
-              )
-            ],
-          ),
-        ),
-        Divider(),
-        Padding(
-          padding: EdgeInsets.only(top: 16.0, left: 20, right: 20, bottom: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Icon(Icons.watch_later_outlined, color: Colors.yellow),
-              Text("4.8 (120 Reviews)", style: TextStyle(color: Colors.yellow)),
-              Icon(
-                Icons.watch_later_outlined,
-                color: Colors.blue,
-              ),
-              Text("Open at 17.00", style: TextStyle(color: Colors.blue))
-            ],
-          ),
-        )
-      ]));
+                  ),
+                )
+              ])),
+          Card(
+              margin: EdgeInsets.only(top: 16.0, bottom: 10.0),
+              child: Column(children: [
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 20.0, left: 20, right: 20, bottom: 16),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(Icons.person),
+                              Column(
+                                children: [
+                                  Text(
+                                    "Dr. Imran Syahir",
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 18),
+                                  ),
+                                  Text("General Doctor",
+                                      style: TextStyle(color: Colors.black))
+                                ],
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Icon(Icons.not_listed_location,
+                                  color: Colors.white),
+                              Text("1.2 KM")
+                            ],
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Divider(),
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 16.0, left: 20, right: 20, bottom: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(Icons.watch_later_outlined, color: Colors.yellow),
+                      Text("4.8 (120 Reviews)",
+                          style: TextStyle(color: Colors.yellow)),
+                      Icon(
+                        Icons.watch_later_outlined,
+                        color: Colors.blue,
+                      ),
+                      Text("Open at 17.00",
+                          style: TextStyle(color: Colors.blue))
+                    ],
+                  ),
+                )
+              ]))
+        ],
+      );
 }
 
 class CardDoctorWidget extends StatelessWidget {
