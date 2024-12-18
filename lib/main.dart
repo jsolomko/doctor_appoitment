@@ -1,7 +1,8 @@
-import 'package:doctor_appoitment/ui/current_doctor_widget.dart';
-import 'package:doctor_appoitment/ui/near_doctors.dart';
-import 'package:doctor_appoitment/ui/search_doctor_widget.dart';
-import 'package:doctor_appoitment/ui/themes_widget.dart';
+import 'package:doctor_appoitment/ui/screen_1/near_doctors.dart';
+import 'package:doctor_appoitment/ui/screen_1/current_doctor_widget.dart';
+import 'package:doctor_appoitment/ui/screen_1/search_doctor_widget.dart';
+import 'package:doctor_appoitment/ui/screen_1/themes_widget.dart';
+import 'package:doctor_appoitment/ui/screen_2/schedule_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
           body: const TabBarView(
             children: [
               MyHomePage(title: 'Hi James'),
-              MyHomePage(title: 'Hi James'),
+              SchedulePage(),
             ],
           ),
           bottomNavigationBar: Container(
