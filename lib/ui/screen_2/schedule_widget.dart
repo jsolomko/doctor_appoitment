@@ -7,26 +7,25 @@ class SchedulePage extends StatelessWidget {
 
   List<Doctor> doctors = [
     Doctor(
+        image: 'assets/images/dr.png',
         name: "Dr. Imran Syahir",
         specialist: "General Doctro",
         workDay: "Sunday, 12 June",
         workTime: "11:00 - 12:00 AM"),
     Doctor(
+        image: 'assets/images/doctor_2.png',
         name: "Dr.Bessie Colleman",
         specialist: "Dental Specialist",
         workDay: "Sunday, 12 June",
         workTime: "11:00 - 12:00 AM"),
     Doctor(
+        image: 'assets/images/dr.png',
         name: "Dr.Babe Didrikson",
         specialist: "Dental Specialist",
         workDay: "Sunday, 12 June",
         workTime: "11:00 - 12:00 AM"),
     Doctor(
-        name: "Dr.Babe Didrikson",
-        specialist: "Dental Specialist",
-        workDay: "Sunday, 12 June",
-        workTime: "11:00 - 12:00 AM"),
-    Doctor(
+        image: 'assets/images/doctor_2.png',
         name: "Dr.Babe Didrikson",
         specialist: "Dental Specialist",
         workDay: "Sunday, 12 June",
@@ -36,34 +35,49 @@ class SchedulePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
+          backgroundColor: Colors.white,
+          toolbarHeight: 60,
           title: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            SizedBox(
-              width: 226,
-              child: ElevatedButton(
-                onPressed: () => {},
-                child: Text("Detail"),
-              ),
-            ),
-            SizedBox(
-              width: 226,
-              child: ElevatedButton(
-                onPressed: () => {},
-                child: Text("Detail"),
-              ),
-            ),
-            SizedBox(
-              width: 226,
-              child: ElevatedButton(
-                onPressed: () => {},
-                child: Text("Detail"),
-              ),
-            )
-          ],
-        ),
-      )),
+            scrollDirection: Axis.horizontal,
+            child: SizedBox(
+                height: 60,
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 6, right: 6),
+                      width: 226,
+                      height: 50,
+                      child: ElevatedButton(
+                        onPressed: () => {},
+                        child: Text(
+                          "Canceled Schedule",
+                          style: TextStyle(fontSize: 16, color: Colors.blue),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 6, right: 6),
+                      width: 226,
+                      height: 50,
+                      child: ElevatedButton(
+                        onPressed: () => {},
+                        child: Text("Upcoming schedule",
+                            style: TextStyle(fontSize: 16, color: Colors.blue)),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 6, right: 6),
+                      width: 226,
+                      height: 50,
+                      child: ElevatedButton(
+                        onPressed: () => {},
+                        child: Text("Completed",
+                            style: TextStyle(fontSize: 16, color: Colors.blue)),
+                      ),
+                    )
+                  ],
+                )),
+          )),
       body: Container(
           padding: const EdgeInsets.all(20),
           margin: const EdgeInsets.all(8.0),
@@ -84,9 +98,9 @@ class SchedulePage extends StatelessWidget {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  const Image(
+                                  Image(
                                       image:
-                                          AssetImage('assets/images/dr.png')),
+                                          AssetImage(doctors[index].image)),
                                   Container(
                                     padding: EdgeInsets.only(left: 16),
                                     child: Column(
@@ -127,7 +141,7 @@ class SchedulePage extends StatelessWidget {
                             )),
                         Padding(
                           padding: const EdgeInsets.only(
-                              top: 16.0, left: 20, right: 20, bottom: 20),
+                              top: 16.0, left: 20, right: 20),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -150,14 +164,21 @@ class SchedulePage extends StatelessWidget {
                             ],
                           ),
                         ),
+                        Container(
+                          padding: EdgeInsets.only(top: 20, bottom: 20),
+                          child: SizedBox(
+                            width: 295,
+                            child: ElevatedButton(
+                              onPressed: () => {},
+                              child: Text(
+                                "Detail",
+                                style:
+                                    TextStyle(fontSize: 14, color: Colors.blue),
+                              ),
+                            ),
+                          ),
+                        )
                       ])),
-                  SizedBox(
-                    width: 295,
-                    child: ElevatedButton(
-                      onPressed: () => {},
-                      child: Text("Detail"),
-                    ),
-                  )
                 ]);
                 ;
               })));
