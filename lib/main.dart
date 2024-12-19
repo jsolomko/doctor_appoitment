@@ -28,9 +28,9 @@ class MyApp extends StatelessWidget {
           /* appBar: AppBar(
             title: Text("TabBar"),
           ),*/
-          body: const TabBarView(
+          body: TabBarView(
             children: [
-              MyHomePage(title: 'Hi James'),
+              const MyHomePage(title: 'Hi James'),
               SchedulePage(),
             ],
           ),

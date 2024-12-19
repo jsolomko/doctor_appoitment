@@ -1,180 +1,164 @@
+import 'package:doctor_appoitment/data/doctor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SchedulePage extends StatelessWidget {
-  const SchedulePage({super.key});
+  SchedulePage({super.key});
+
+  List<Doctor> doctors = [
+    Doctor(
+        name: "Dr. Imran Syahir",
+        specialist: "General Doctro",
+        workDay: "Sunday, 12 June",
+        workTime: "11:00 - 12:00 AM"),
+    Doctor(
+        name: "Dr.Bessie Colleman",
+        specialist: "Dental Specialist",
+        workDay: "Sunday, 12 June",
+        workTime: "11:00 - 12:00 AM"),
+    Doctor(
+        name: "Dr.Babe Didrikson",
+        specialist: "Dental Specialist",
+        workDay: "Sunday, 12 June",
+        workTime: "11:00 - 12:00 AM"),
+    Doctor(
+        name: "Dr.Babe Didrikson",
+        specialist: "Dental Specialist",
+        workDay: "Sunday, 12 June",
+        workTime: "11:00 - 12:00 AM"),
+    Doctor(
+        name: "Dr.Babe Didrikson",
+        specialist: "Dental Specialist",
+        workDay: "Sunday, 12 June",
+        workTime: "11:00 - 12:00 AM")
+  ];
 
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
-        title: Row(
+          title: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
           children: [
-            Card(
-              child: Text("data"),
+            SizedBox(
+              width: 226,
+              child: ElevatedButton(
+                onPressed: () => {},
+                child: Text("Detail"),
+              ),
             ),
-            Card(
-              child: Text("data"),
+            SizedBox(
+              width: 226,
+              child: ElevatedButton(
+                onPressed: () => {},
+                child: Text("Detail"),
+              ),
             ),
-            Card(
-              child: Text("data"),
+            SizedBox(
+              width: 226,
+              child: ElevatedButton(
+                onPressed: () => {},
+                child: Text("Detail"),
+              ),
             )
           ],
         ),
-      ),
-      body: Column(
-        children: [
-          Card(
-              margin: const EdgeInsets.only(top: 16.0, bottom: 12.0),
-              color: Colors.blue,
-              child: Column(children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 20.0, left: 20, right: 20, bottom: 16),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const Image(
-                              image: AssetImage('assets/images/dr.png')),
-                          Container(
-                            padding: EdgeInsets.only(left: 16),
-                            child: const Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Dr. Imran Syahir",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text("General Doctor",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                    ))
-                              ],
-                            ),
+      )),
+      body: Container(
+          padding: const EdgeInsets.all(20),
+          margin: const EdgeInsets.all(8.0),
+          child: ListView.builder(
+              itemCount: doctors.length,
+              itemBuilder: (context, index) {
+                return Column(children: [
+                  Card(
+                      margin: const EdgeInsets.only(top: 16.0, bottom: 12.0),
+                      color: Colors.white,
+                      child: Column(children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 20.0, left: 20, right: 20, bottom: 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  const Image(
+                                      image:
+                                          AssetImage('assets/images/dr.png')),
+                                  Container(
+                                    padding: EdgeInsets.only(left: 16),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          doctors[index].name,
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        Text(doctors[index].specialist,
+                                            style: TextStyle(
+                                              color: Colors.grey,
+                                              fontSize: 14,
+                                            ))
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Icon(Icons.keyboard_arrow_right_rounded,
+                                      color: Colors.grey),
+                                ],
+                              )
+                            ],
                           ),
-                        ],
-                      ),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Icon(Icons.keyboard_arrow_right_rounded,
-                              color: Colors.white),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                    width: 287,
-                    child: const Divider(
-                      thickness: 1,
-                    )),
-                const Padding(
-                  padding: EdgeInsets.only(
-                      top: 16.0, left: 20, right: 20, bottom: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(
-                        Icons.calendar_month,
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                      Text("Sunday, 12 June",
-                          style: TextStyle(color: Colors.white, fontSize: 12)),
-                      Icon(
-                        Icons.watch_later_outlined,
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                      Text("11:00 - 12:00 AM",
-                          style: TextStyle(color: Colors.white, fontSize: 12))
-                    ],
-                  ),
-                )
-              ])),
-          Card(
-              margin: const EdgeInsets.only(top: 16.0, bottom: 12.0),
-              color: Colors.blue,
-              child: Column(children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 20.0, left: 20, right: 20, bottom: 16),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const Image(
-                              image: AssetImage('assets/images/dr.png')),
-                          Container(
-                            padding: EdgeInsets.only(left: 16),
-                            child: const Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Dr. Imran Syahir",
+                        ),
+                        Container(
+                            width: 287,
+                            child: const Divider(
+                              thickness: 1,
+                            )),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 16.0, left: 20, right: 20, bottom: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              const Icon(
+                                Icons.calendar_month,
+                                color: Colors.grey,
+                                size: 16,
+                              ),
+                              Text(doctors[index].workDay,
+                                  style: const TextStyle(
+                                      color: Colors.grey, fontSize: 12)),
+                              const Icon(
+                                Icons.watch_later_outlined,
+                                color: Colors.grey,
+                                size: 16,
+                              ),
+                              Text(doctors[index].workTime,
                                   style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text("General Doctor",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                    ))
-                              ],
-                            ),
+                                      color: Colors.grey, fontSize: 12))
+                            ],
                           ),
-                        ],
-                      ),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Icon(Icons.keyboard_arrow_right_rounded,
-                              color: Colors.white),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                    width: 287,
-                    child: const Divider(
-                      thickness: 1,
-                    )),
-                const Padding(
-                  padding: EdgeInsets.only(
-                      top: 16.0, left: 20, right: 20, bottom: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(
-                        Icons.calendar_month,
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                      Text("Sunday, 12 June",
-                          style: TextStyle(color: Colors.white, fontSize: 12)),
-                      Icon(
-                        Icons.watch_later_outlined,
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                      Text("11:00 - 12:00 AM",
-                          style: TextStyle(color: Colors.white, fontSize: 12))
-                    ],
-                  ),
-                )
-              ])),
-        ],
-      ));
+                        ),
+                      ])),
+                  SizedBox(
+                    width: 295,
+                    child: ElevatedButton(
+                      onPressed: () => {},
+                      child: Text("Detail"),
+                    ),
+                  )
+                ]);
+                ;
+              })));
 }
